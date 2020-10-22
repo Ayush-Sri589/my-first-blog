@@ -13,9 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# Lines between triple quotes are called Doctrings, and are not run by python. These can be used anywhere to describe what a function does...
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('blog.urls')),
+    #This means that now we will redirect anything coming to the https// 127:3000 vaali web page to the blog.urls page
+    # and further instructions will be looked there.
 ]
